@@ -5,8 +5,6 @@
 
   <body>
 
-
-
     {% if page.heroimg %}
       <div class="transparent">
         {% include header.html %}
@@ -30,6 +28,10 @@
           <div class="content" itemprop="articleBody">
             {{ content }}
           </div>
+
+          {% if page.heroimgcreds %}
+            <div class="heroimgcreds">Hero image: {{ page.heroimgcreds }}</div>
+          {% endif %}
 
         </article>
       </div>
