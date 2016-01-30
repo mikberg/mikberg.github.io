@@ -82,3 +82,29 @@ article {
   font-size: $size-7;
   color: $grey;
 }
+
+.hidden {
+  display: none;
+}
+
+.share {
+  a {
+    padding-right: 1em;
+  }
+}
+
+footer.footer {
+  text-color: $grey-light;
+  font-size: 16px;
+}
+
+.social-media-list {
+  a {
+    text-decoration: none;
+    border-bottom: 0 !important;
+  }
+
+  .username {
+    margin-left: .5em;
+  }
+}
