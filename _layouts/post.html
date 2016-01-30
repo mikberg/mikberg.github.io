@@ -1,15 +1,44 @@
----
-layout: default
----
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+<!DOCTYPE html>
+<html>
 
-  <header class="heading">
-    <h1 class="title" itemprop="name headline">{{ page.title }}</h1>
-    <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
-  </header>
+  {% include head.html %}
 
-  <div class="content" itemprop="articleBody">
-    {{ content }}
-  </div>
+  <body>
 
-</article>
+    {% if page.heroimg %}
+      <div class="transparent">
+        {% include header.html %}
+      </div>
+      <div class="heroimg">
+        <img src="{{site.baseurl}}/{{ page.heroimg }}">
+      </div>
+    {% else %}
+      {% include header.html %}
+    {% endif %}
+
+    <section class="section">
+      <div class="container">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+          <header class="heading">
+            <h1 class="title" itemprop="name headline">{{ page.title }}</h1>
+            <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
+          </header>
+
+          <div class="content" itemprop="articleBody">
+            {{ content }}
+          </div>
+
+          {% if page.heroimgcreds %}
+            <div class="heroimgcreds">Hero image: {{ page.heroimgcreds }}</div>
+          {% endif %}
+
+        </article>
+      </div>
+    </section>
+
+    {% include footer.html %}
+
+  </body>
+
+</html>

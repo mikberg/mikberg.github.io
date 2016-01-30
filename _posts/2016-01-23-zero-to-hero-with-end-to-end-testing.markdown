@@ -3,6 +3,8 @@ layout: post
 title:  "Zero to Hero with End-to-End testing using Nightwatch, SauceLabs and Travis"
 date:   2016-01-23 13:59:43 +0000
 categories: javascript ci testing
+heroimg: images/pink-fluffy-clouds.jpg
+heroimgcreds: "Header image is licensed under a Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License. http://creativecommons.org/licenses/by-nc-nd/3.0/ || Font Credit: http://www.pia-frauss.de/"
 ---
 Developing super cool web apps has always been a walk on a thin line: You want to use the latest possible language features and APIs, but at the same time, it needs to work in loads of, for developers, obscure browsers like IE10 and Android Browser.
 

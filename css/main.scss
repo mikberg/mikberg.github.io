@@ -2,10 +2,37 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
 
-@import
-  'bulma',
-  'base'
-;
+@import 'bulma';
+@import 'base';
+
+header {
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.transparent {
+  position: absolute;
+  width: 100%;
+
+  > .hero.is-info.is-bold {
+    background-image: linear-gradient(141deg,
+      rgba(255, 255, 255, 0.0) 0%,
+      rgba(255, 255, 255, 0.2) 100%);
+  }
+  > .hero.is-info {
+    background-color: transparent;
+  }
+}
+
+.heroimg {
+  width: 100%;
+  max-height: 70vh;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+  }
+}
 
 code {
   font-size: 18px;
@@ -23,8 +50,16 @@ img + em {
 }
 
 article {
+  header {
+    margin: 0;
+  }
+
   h1.title {
-    font-weight: 700;
+    font-size: 50px;
+    font-weight: bold;
+    letter-spacing: -2px;
+    text-indent: -3px;
+    text-transform: none;
   }
 
   .content {
@@ -41,5 +76,9 @@ article {
       letter-spacing: -0.003em;
     }
   }
+}
 
+.heroimgcreds {
+  font-size: $size-7;
+  color: $grey;
 }
