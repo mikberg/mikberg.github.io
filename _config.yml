@@ -17,3 +17,5 @@ github_username:  mikberg
 
 # Build settings
 markdown: kramdown
+kramdown:
+  input: GFM
