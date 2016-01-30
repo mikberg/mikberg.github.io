@@ -109,3 +109,15 @@ footer.footer {
     margin-left: .5em;
   }
 }
+
+.read-next-story {
+  margin-top: 2em;
+  display: block;
+  @extend .column;
+  color: white;
+  text-align: left;
+
+  h2 {
+    font-weight: bold;
+  }
+}

@@ -55,6 +55,33 @@
       </div>
     </section>
 
+    <section class="hero is-bold is-info">
+      <div class="hero-content">
+        <h2>You might also like ...</h2>
+        <section class="container">
+          {% if page.previous %}
+            <a class="read-next-story" href="{{ site.baseurl}}{{ page.previous.url }}">
+              <section class="post">
+                <h2 class="title">{{ page.previous.title }}</h2>
+                <p>{{ page.previous.content | strip_html | truncatewords:15 }}</p>
+              </section>
+            </a>
+          {% endif %}
+
+          {% if page.next %}
+            <a class="read-next-story" href="{{ site.baseurl}}{{ page.next.url }}">
+              <section class="post">
+                <h2 class="title">{{ page.next.title }}</h2>
+                <p>{{ page.next.content | strip_html | truncatewords:15 }}</p>
+              </section>
+            </a>
+          {% endif %}
+        </div>
+
+
+      </div>
+    </section>
+
     {% include footer.html %}
 
   </body>
