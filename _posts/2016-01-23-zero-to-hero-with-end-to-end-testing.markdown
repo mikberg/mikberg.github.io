@@ -60,7 +60,7 @@ Thanks to the Nightwatch API, the code is pretty self explanatory. Replace the a
 
 Assuming you already have your app running, go ahead and run your test, with `nightwatch --config nightwatch.js`.
 
-![Running Nightwatch](/images/nightwatch.gif)
+![Running Nightwatch](/images/nightwatch.gif) *Awesome, the title matches the HTML.*
 
 ## Running Tests in the Cloud
 
@@ -115,7 +115,7 @@ For SauceLabs to be able to contact your server, install SauceConnect with `brew
 
 This should be all it takes to run tests on a machine far, far away, somewhere in a cloud, and have it do stuff the server running right under your fingertips. Run `nightwatch --config nightwatch.js --env chrome`, then sit back and relax.
 
-![Nightwatch on Saucelabs](/images/nightwatch-saucelabs.png)
+![Nightwatch on Saucelabs](/images/nightwatch-saucelabs.png) *Not bad, Chrome and IE agree on the title.*
 
 ## Run Your Tests from Travis
 
