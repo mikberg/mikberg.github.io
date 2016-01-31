@@ -30,13 +30,13 @@
           </div>
 
           {% if page.heroimgcreds %}
-            <div class="heroimgcreds">Hero image: {{ page.heroimgcreds }}</div>
+            <div class="heroimgcreds">Hero image: {{ page.heroimgcreds | markdownify }}</div>
           {% endif %}
 
           <hr>
 
           <div class="share">
-              <h4 class="subtitle">Share this post and extra cool</h4>
+              <h4 class="subtitle">Share this post and be extra cool</h4>
               <a class="fa fa-twitter" href="http://twitter.com/share?text={{ page.title }}&amp;url={{ site.url }}{{ page.url | remove: '/' }}"
                   onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                   <span class="hidden">Twitter</span>
