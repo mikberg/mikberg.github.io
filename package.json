@@ -1,0 +1,8 @@
+{
+  "name": "mikbe-com",
+  "description": "Personal blog",
+  "version": "0.1.0",
+  "dependencies": {
+    "bulma": "0.0.6"
+  }
+}

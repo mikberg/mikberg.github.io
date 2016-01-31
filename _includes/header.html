@@ -1,0 +1,27 @@
+<section class="hero is-info is-left is-bold">
+  <div class="hero-header">
+    <header class="header">
+
+      <!-- Left side -->
+      <div class="header-left">
+        <div class="header-item">
+          <a class="header-item" href="{{ site.baseurl }}/">
+            <h1 class="title">{{ site.title }}</h1>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right side -->
+      <div class="header-right">
+        {% for my_page in site.pages %}
+          {% if my_page.title %}
+            <span class="header-item">
+              <a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
+            </span>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+    </heaer>
+  </div>
+</section>

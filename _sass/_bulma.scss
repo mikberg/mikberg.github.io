@@ -1,0 +1,13 @@
+@import '../node_modules/bulma/bulma/utilities/utilities';
+@import '../node_modules/bulma/bulma/config/variables';
+
+$size-6: 21px;
+
+@import '../node_modules/bulma/bulma/config/generated-variables';
+
+$text: $grey-darker;
+
+@import '../node_modules/bulma/bulma/base/base';
+@import '../node_modules/bulma/bulma/elements/elements';
+@import '../node_modules/bulma/bulma/components/components';
+@import '../node_modules/bulma/bulma/layout/layout';

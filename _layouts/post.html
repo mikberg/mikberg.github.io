@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+
+    {% if page.heroimg %}
+      <div class="transparent">
+        {% include header.html %}
+      </div>
+      <div class="heroimg">
+        <img src="{{site.baseurl}}/{{ page.heroimg }}">
+      </div>
+    {% else %}
+      {% include header.html %}
+    {% endif %}
+
+    <section class="section">
+      <div class="container">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+          <header class="heading">
+            <h1 class="title" itemprop="name headline">{{ page.title }}</h1>
+            <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
+          </header>
+
+          <div class="content" itemprop="articleBody">
+            {{ content }}
+          </div>
+
+          {% if page.heroimgcreds %}
+            <div class="heroimgcreds">Hero image: {{ page.heroimgcreds | markdownify }}</div>
+          {% endif %}
+
+          <hr>
+
+          <div class="share">
+              <h4 class="subtitle">Share this post and be extra cool</h4>
+              <a class="fa fa-twitter" href="http://twitter.com/share?text={{ page.title }}&amp;url={{ site.url }}{{ page.url | remove: '/' }}"
+                  onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                  <span class="hidden">Twitter</span>
+              </a>
+              <a class="fa fa-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url | remove: '/' }}"
+                  onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                  <span class="hidden">Facebook</span>
+              </a>
+              <a class="fa fa-google-plus" href="https://plus.google.com/share?url={{ site.url }}{{ page.url | remove: '/' }}"
+                 onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                  <span class="hidden">Google+</span>
+              </a>
+          </section>
+
+        </article>
+      </div>
+    </section>
+
+    <section class="hero is-bold is-info">
+      <div class="hero-content">
+        <h2>You might also like ...</h2>
+        <section class="container">
+          <div class="columns">
+
+            {% if page.previous %}
+              <div class="column">
+                <a class="read-next-story" href="{{ site.baseurl}}{{ page.previous.url }}">
+                  <section class="post">
+                    <h2 class="title">{{ page.previous.title }}</h2>
+                    <p>{{ page.previous.content | strip_html | truncatewords:15 }}</p>
+                  </section>
+                </a>
+              </div>
+            {% endif %}
+
+            {% if page.next %}
+              <div class="column">
+                <a class="read-next-story" href="{{ site.baseurl}}{{ page.next.url }}">
+                  <section class="post">
+                    <h2 class="title">{{ page.next.title }}</h2>
+                    <p>{{ page.next.content | strip_html | truncatewords:15 }}</p>
+                  </section>
+                </a>
+              </div>
+            {% endif %}
+            
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+
+    {% include footer.html %}
+
+  </body>
+
+</html>
