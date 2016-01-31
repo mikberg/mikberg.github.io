@@ -59,23 +59,31 @@
       <div class="hero-content">
         <h2>You might also like ...</h2>
         <section class="container">
-          {% if page.previous %}
-            <a class="read-next-story" href="{{ site.baseurl}}{{ page.previous.url }}">
-              <section class="post">
-                <h2 class="title">{{ page.previous.title }}</h2>
-                <p>{{ page.previous.content | strip_html | truncatewords:15 }}</p>
-              </section>
-            </a>
-          {% endif %}
+          <div class="columns">
 
-          {% if page.next %}
-            <a class="read-next-story" href="{{ site.baseurl}}{{ page.next.url }}">
-              <section class="post">
-                <h2 class="title">{{ page.next.title }}</h2>
-                <p>{{ page.next.content | strip_html | truncatewords:15 }}</p>
-              </section>
-            </a>
-          {% endif %}
+            {% if page.previous %}
+              <div class="column">
+                <a class="read-next-story" href="{{ site.baseurl}}{{ page.previous.url }}">
+                  <section class="post">
+                    <h2 class="title">{{ page.previous.title }}</h2>
+                    <p>{{ page.previous.content | strip_html | truncatewords:15 }}</p>
+                  </section>
+                </a>
+              </div>
+            {% endif %}
+
+            {% if page.next %}
+              <div class="column">
+                <a class="read-next-story" href="{{ site.baseurl}}{{ page.next.url }}">
+                  <section class="post">
+                    <h2 class="title">{{ page.next.title }}</h2>
+                    <p>{{ page.next.content | strip_html | truncatewords:15 }}</p>
+                  </section>
+                </a>
+              </div>
+            {% endif %}
+            
+          </div>
         </div>
 
 
