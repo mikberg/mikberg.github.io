@@ -51,6 +51,9 @@ img + em {
 }
 
 article {
+  width: 100%;
+  overflow: hidden;
+
   header {
     margin: 0;
   }
