@@ -2410,21 +2410,24 @@ img + em {
 .container {
   max-width: 700px; }
 
-article header {
-  margin: 0; }
-article h1.title {
-  font-size: 50px;
-  font-weight: bold;
-  letter-spacing: -2px;
-  text-indent: -3px;
-  text-transform: none; }
-article .content h2, article .content h3, article .content h4, article .content h5, article .content h6 {
-  color: #aeb1b5; }
-article .content p {
-  font-family: Georgia,Cambria,"Times New Roman",Times,serif;
-  line-height: 1.58;
-  margin-top: 29px;
-  letter-spacing: -0.003em; }
+article {
+  width: 100%;
+  overflow: hidden; }
+  article header {
+    margin: 0; }
+  article h1.title {
+    font-size: 50px;
+    font-weight: bold;
+    letter-spacing: -2px;
+    text-indent: -3px;
+    text-transform: none; }
+  article .content h2, article .content h3, article .content h4, article .content h5, article .content h6 {
+    color: #aeb1b5; }
+  article .content p {
+    font-family: Georgia,Cambria,"Times New Roman",Times,serif;
+    line-height: 1.58;
+    margin-top: 29px;
+    letter-spacing: -0.003em; }
 
 .heroimgcreds {
   font-size: 21px;
