@@ -6,9 +6,65 @@
 </description>
     <link>http://mikbe.com/</link>
     <atom:link href="http://mikbe.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 14 Feb 2016 13:27:25 +0000</pubDate>
-    <lastBuildDate>Sun, 14 Feb 2016 13:27:25 +0000</lastBuildDate>
+    <pubDate>Sun, 14 Feb 2016 14:06:17 +0000</pubDate>
+    <lastBuildDate>Sun, 14 Feb 2016 14:06:17 +0000</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Give Your Releases Awesome Names with Codenamer</title>
+        <description>&lt;p&gt;&lt;strong&gt;TL;DR: I’ve released &lt;a href=&quot;https://github.com/mikberg/codenamer&quot;&gt;Codenamer&lt;/a&gt;, a simple CLI to generate codenames. Such as it’s own release codename, &lt;code class=&quot;highlighter-rouge&quot;&gt;0.3.0 canonical-catastrophe&lt;/code&gt;.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Using codenames for releases has been one of my hobbies, ever since I started using Angular, inspired by their &lt;a href=&quot;https://github.com/angular/angular.js/blob/master/CHANGELOG.md&quot;&gt;cool-sounding and mysterious codenames&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Using names for releases in large-ish projects can make them easier to remember and to talk about. Even if the name is totally unrelated to the contents of a release, it can be easier to relate a feature set to a name than to an arbitrary number.&lt;/p&gt;
+
+&lt;p&gt;In order to be extra cool, codenames should:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Sound awesome&lt;/li&gt;
+  &lt;li&gt;Keep to a theme&lt;/li&gt;
+  &lt;li&gt;Fulfill a set of rules, e.g. &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;adjective&amp;gt;-&amp;lt;noun&amp;gt;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Optionally relate to the release number, e.g. start with &lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt; for &lt;code class=&quot;highlighter-rouge&quot;&gt;0.1.x&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Alliteration&quot;&gt;Alliterations&lt;/a&gt; are welcome.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;using-codenamer&quot;&gt;Using Codenamer&lt;/h2&gt;
+
+&lt;p&gt;Codenamer lets you generate these memorable codenames without need for imagination. You just pipe it a (fairly large) body of text as input, and some rules for the codenames.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;curl -s https://en.wikipedia.org/wiki/Alliteration | codenamer --count 10 --format cJ,n15-cN,a,n20
+persuasive-parallelism
+specific-syllables
+symmetrical-syllable
+consonant-consonants
+alliterative-argument
+pickled-proposition
+special-speaker
+rhetorical-release
+memorable-meter
+potential-pairs
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;format&lt;/code&gt; option lets you specify the number of words per codename, the length of each word (or the combined length), the word class for each of the words and alliteration.&lt;/p&gt;
+
+&lt;p&gt;The module also has a Node API, so you can generate codenames as part of a release script or something.&lt;/p&gt;
+
+&lt;p&gt;Install it with &lt;code class=&quot;highlighter-rouge&quot;&gt;npm install --global codenamer&lt;/code&gt;, and you’re ready.&lt;/p&gt;
+
+&lt;p&gt;Check the repo at &lt;a href=&quot;https://github.com/mikberg/codenamer&quot;&gt;mikberg/codenamer&lt;/a&gt;.&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 14 Feb 2016 12:36:00 +0000</pubDate>
+        <link>http://mikbe.com/awesome/projects/2016/02/14/generate-awesome-codenames-with-codenamer.html</link>
+        <guid isPermaLink="true">http://mikbe.com/awesome/projects/2016/02/14/generate-awesome-codenames-with-codenamer.html</guid>
+        
+        
+        <category>awesome</category>
+        
+        <category>projects</category>
+        
+      </item>
     
       <item>
         <title>Zero to Hero with End-to-End testing using Nightwatch, SauceLabs and Travis</title>
