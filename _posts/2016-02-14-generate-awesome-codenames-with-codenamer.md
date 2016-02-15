@@ -8,6 +8,11 @@ heroimg: images/ekorn.jpg
 
 **TL;DR: I've released [Codenamer][codenamer], a simple CLI to generate codenames. Such as it's own release codename, `0.3.0 canonical-catastrophe`.**
 
+```sh
+$ curl -s https://en.wikipedia.org/wiki/Gravitational_Waves | codenamer --format pa,cJ,n15-cN,a,n20
+astronomical-amplification
+```
+
 Using codenames for releases has been one of my hobbies, ever since I started using Angular, inspired by their [cool-sounding and mysterious codenames][angular-codenames].
 
 Using names for releases in large-ish projects can make them easier to remember and to talk about. Even if the name is totally unrelated to the contents of a release, it can be easier to relate a feature set to a name than to an arbitrary number.
