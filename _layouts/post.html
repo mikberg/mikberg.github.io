@@ -10,7 +10,9 @@
         {% include header.html %}
       </div>
       <div class="heroimg">
-        <img src="{{site.baseurl}}/{{ page.heroimg }}">
+        {% responsive_image_block %}
+          path: {{ page.heroimg }}
+        {% endresponsive_image_block %}
       </div>
     {% else %}
       {% include header.html %}

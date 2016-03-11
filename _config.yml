@@ -5,6 +5,8 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'jekyll serve'. If you change this file, please restart the server process.
 
+gems: [jekyll/responsive_image]
+
 # Site settings
 title: Mikbe.com
 email: mikaelbrg@gmail.com
@@ -19,3 +21,14 @@ github_username:  mikberg
 markdown: kramdown
 kramdown:
   input: GFM
+
+# Responsive images
+responsive_image:
+  template: _includes/responsive-image.html
+  default_quality: 90
+  output_path_format: images/resized/%{width}/%{basename}
+
+  sizes:
+    - width: 400
+    - width: 800
+    - width: 1200
