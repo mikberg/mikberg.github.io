@@ -6,9 +6,181 @@
 </description>
     <link>http://mikbe.com/</link>
     <atom:link href="http://mikbe.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 11 Mar 2016 17:26:51 +0000</pubDate>
-    <lastBuildDate>Fri, 11 Mar 2016 17:26:51 +0000</lastBuildDate>
+    <pubDate>Sun, 13 Mar 2016 15:01:10 +0000</pubDate>
+    <lastBuildDate>Sun, 13 Mar 2016 15:01:10 +0000</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Why and How Testing Can Make You Happier</title>
+        <description>&lt;p&gt;I was once a non-tester, because I didn’t see the value. Then I tried it for a while, and was convinced. I’ve gathered some experience, but not enough. This article is an attempt to collect what I know and what I think I know, and hope I can finally learn some of the stuff I know but don’t necessarily practice.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/simpsons-testing.gif&quot; alt=&quot;hello&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The main inspiration source for this article is &lt;a href=&quot;http://javascriptair.com/episodes/2016-01-06/&quot;&gt;JavaScript Air episode 004&lt;/a&gt;, but there’s also some original content in here. And some from &lt;a href=&quot;https://vimeo.com/68375232&quot;&gt;TDD: Where did it all go wrong?&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;I don’t always test my code, but when I do, it feels better.&lt;/p&gt;
+
+  &lt;p&gt;– &lt;cite&gt;me&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;what-is-it-all-about&quot;&gt;What is it all about?&lt;/h2&gt;
+
+&lt;p&gt;This, only for code:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/testing-bicycle-integration-test.gif&quot; alt=&quot;Integration testing a bike&quot; /&gt; &lt;em&gt;The concept isn’t that hard.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;This article is mostly about unit testing, as opposed to integration testing or end-to-end testing, but some aspects are true for all kinds. And know that there’s a spectrum. In practice, tests are seldom one or the other, and that isn’t the goal either.&lt;/p&gt;
+
+&lt;p&gt;Unit tests are cheap and should make up the largest part of your testing efforts. They’re cheap to write and run. They look at only specific parts of the code. Integration tests are the opposite, they encompass larger parts of the code. Some mimic users.&lt;/p&gt;
+
+&lt;h2 id=&quot;why-is-it-important&quot;&gt;Why is it Important?&lt;/h2&gt;
+
+&lt;p&gt;Testing helps you achieve peace of mind about your code. Writing a solution to a half-complex problem, then manually testing it only takes you so far. With some experience, you’ll surely recognize the situation of shipping some code with confidence, only to find it break apart at its first opportunity.&lt;/p&gt;
+
+&lt;p&gt;Testing gives experience with the mindset of putting your code under the most extreme conditions it can get into. What if the number passed in was negative when we always assumed it would be positive? What if it wasn’t a number at all?&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;Everybody writes bugs, we all write bugs. So, it’s not a matter of “can you write code correctly or not the first time?”, we all write incorrect code. &lt;strong&gt;That’s all that we do, we only write incorrect code&lt;/strong&gt;.&lt;/em&gt;&lt;/p&gt;
+
+  &lt;p&gt;– &lt;cite&gt;Joe Eames, JavaScript Air 004&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Coding is hard&lt;/strong&gt;, and we should all acknowledge that. Among the primary reasons to test your code is to gain confidence that it will behave as &lt;em&gt;expected&lt;/em&gt;, whatever that is.&lt;/p&gt;
+
+&lt;p&gt;Not convinced? Here are some additional arguments:&lt;/p&gt;
+
+&lt;h3 id=&quot;tested-code-is-better-code&quot;&gt;Tested Code is Better Code&lt;/h3&gt;
+
+&lt;p&gt;Many people&lt;sup&gt;[who?]&lt;/sup&gt; will tell you that code testing leads to better code quality. This is especially true when using unit tests and at least some variation on test driven development, even if it’s a sloppy one. Here’s why:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;If your code is hard to test, then it’s probably not very well written.&lt;/strong&gt; What identifies good code is a large question, but the emphasized sentence here is a good rule of thumb. A quality of good code that most will agree on is that it separates concerns. Experienced programmers limit function bodies to only do one logical thing for this reason.&lt;/p&gt;
+
+&lt;h4 id=&quot;aligning-your-goals&quot;&gt;Aligning Your Goals&lt;/h4&gt;
+
+&lt;p&gt;Code that is hard to test probably has either too many things going on, or too many dependencies (or both). Think of this as a problem of aligning interests: When writing untested code, there is a conflict of interest between speed (or laziness) and separation of concerns, and it doesn’t matter as much for the short term how your code is structured. &lt;strong&gt;When your code has to be tested, your goals are more aligned,&lt;/strong&gt; because tests are easier to write for well written code!&lt;/p&gt;
+
+&lt;h4 id=&quot;think-as-a-consumer&quot;&gt;Think as a Consumer&lt;/h4&gt;
+
+&lt;p&gt;When you’re writing tests first, you’re &lt;strong&gt;designing your code’s API first.&lt;/strong&gt; Testing puts you into code consumer mode, where you’ll write code against what’s going to be the interface to other stuff. Designing your API without so much concern for inner workings leads to a better API design, which leads to easier consumption of your module, which leads to cleaner code in the project as a whole.&lt;/p&gt;
+
+&lt;h4 id=&quot;eureka-moments&quot;&gt;Eureka moments&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Testing leads to a-ha moments.&lt;/strong&gt; Often because it forces you to think about edge cases – the value zero, &lt;code class=&quot;highlighter-rouge&quot;&gt;10^12&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;undefined&lt;/code&gt;. You’ll have the opportunity to think about, reflect on and acknowledge what should happen under strange circumstances. Merely the process of thinking about them, or other situations your code can face, often leads to realizations of how the code can be &lt;em&gt;simplified&lt;/em&gt; (as well as how it has to guard itself).&lt;/p&gt;
+
+&lt;p&gt;These eureka moments can also come from one of the most frustrating situations: when your code and tests don’t agree. You’re put in the situation of having to decide which is right. If you’re in this situation, something has probably gone wrong with the design, or your assumptions have changed. Think of this as a good sign! Your code will be happier.&lt;/p&gt;
+
+&lt;!-- As a side note, I like to think about this situation like an NP-complete problem, *[The travelling salesman problem][travellingsalesman]*. These problem instances basically cannot be calculated without checking all possible solutions, so it&#39;s very hard. However, if you have God-given correct answer to the instance, testing the outcome of the algorithm is easy as `t.equal(outcome, godGiven)`. Doesn&#39;t it make sense that testing is easier than writing actual code?--&gt;
+
+&lt;h3 id=&quot;tests-document-what-the-code-does&quot;&gt;Tests Document What the Code Does&lt;/h3&gt;
+
+&lt;p&gt;No-one loves to write documentation, but it sure as hell is nice when the module your inheriting (from your one year younger self, or someone else) or interfacing is well documented. Tests can be this documentation, and with an added bonus: tests put their money where their mouths are and &lt;em&gt;demonstrate&lt;/em&gt; what they mean. Like the best science teachers, they don’t just tell you that hydrogen is flammable. They fill a balloon with hydrogen, let it rise to the ceiling and put a lighted match on a stick to it (One of my most memorable 5th grade classes).&lt;/p&gt;
+
+&lt;p&gt;Do you know what is common to all bugs? &lt;em&gt;They passed all the tests.&lt;/em&gt; So when you find one, you know where not to look.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/testing-just-as-i-expected.gif&quot; alt=&quot;hello&quot; /&gt; &lt;em&gt;At least you know what doesn’t work.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Testing makes it easier to join a project&lt;/strong&gt;, because they reveal what the code is actually supposed to do. They tell a story about the design decisions, what went through the mind of the original developer.&lt;/p&gt;
+
+&lt;h3 id=&quot;refactor-without-worry&quot;&gt;Refactor Without Worry&lt;/h3&gt;
+
+&lt;p&gt;Ever looked at a horrible mess of code, but been to afraid to clean it up? The first thing I do in situations like that is to create tests to discover what the code is supposed to be doing. The tests lock down the functionality, in a good way, allowing us to focus on the spring cleaning, rather than worrying about breaking stuff.&lt;/p&gt;
+
+&lt;p&gt;I’ve seen pieces of code so bad they cause real concerns of whether they actually do what they’re supposed to. Still, no-one dared touch it, afraid of not only breaking intended functionality, but also breaking &lt;em&gt;bugs&lt;/em&gt;. I suspect a large test set based on past I/O would be well worth its investment.&lt;/p&gt;
+
+&lt;p&gt;Fun fact, &lt;strong&gt;the feelings of worry and happiness are inversely proportional&lt;/strong&gt;. Or something like that.&lt;/p&gt;
+
+&lt;h3 id=&quot;create-value-with-confidence-and-correct-products&quot;&gt;Create Value with Confidence and Correct Products&lt;/h3&gt;
+
+&lt;p&gt;Correct code is more valuable than incorrect code&lt;sup&gt;[citation needed]&lt;/sup&gt;. Everything helping your code to be correcter tahn what was there before is worth taking a look at, it’s as simple as that. Delivering correct code builds up trust over time, trust is a valuable asset.&lt;/p&gt;
+
+&lt;h2 id=&quot;a-tool-to-use-less-brain-ram&quot;&gt;A Tool to Use Less Brain RAM&lt;/h2&gt;
+
+&lt;p&gt;Here’s a tip: &lt;strong&gt;Don’t try to solve a problem and engineer a nice solution at the same time.&lt;/strong&gt; Testing gives us that opportunity, using this recipe from &lt;a href=&quot;https://vimeo.com/68375232&quot;&gt;Ian Cooper’s talk on TDD&lt;/a&gt;:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Write a red test.&lt;/li&gt;
+  &lt;li&gt;Solve the problem, make it green &lt;em&gt;as fast as possible.&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;Engineer a nice solution, refactor it to something you’re proud of.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The important thing to take away here is the temporal separation of concerns in your head. Do not try to do steps 2 and 3 at the same time. One of the main limitations of programming is how much you can keep in your head at once, and you’ll write better code the less you have to keep there when you’re typing.&lt;/p&gt;
+
+&lt;p&gt;When solving the problem, do not think about how the code really should be. Copy-paste code, write inefficient loops, duplicate stuff, do whatever you have to do to get the test green as fast as possible. &lt;em&gt;Then&lt;/em&gt; think about how to change it into something you could show your mother.&lt;/p&gt;
+
+&lt;p&gt;Separating your own concerns is one of the reasons to test in the first place, and this method helps doing it in practice. When you quickly and dirtily race to a solution, you don’t have to think about how it looks or how fast it runs. When you carve out your nicely engineered and cool solution, you don’t have to worry about screwing something up.&lt;/p&gt;
+
+&lt;h2 id=&quot;knowing-what-to-test-is-key&quot;&gt;Knowing What to Test is Key&lt;/h2&gt;
+
+&lt;p&gt;Knowing what to test isn’t as easy as it sounds, and is definitively something that comes with experience. Many test too much. Knowing what to test is related to understanding what is important, and what isn’t, and knowing that is not trivial. Here’s a tip, though:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;Test at the highest level possible to get coverage and flexibility on implementation.&lt;/em&gt;&lt;/p&gt;
+
+  &lt;p&gt;– Brian Lonsdorf, JavaScript Air 004&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So, basically:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Do not test internal stuff&lt;/strong&gt;, it will only get in your way. If you honestly feel like you should test the internal stuff, then you might be better off separating some of the internals out to a new module, where they are external.&lt;/li&gt;
+  &lt;li&gt;Do not allow tests to be &lt;strong&gt;over specified&lt;/strong&gt; and deal with stuff they don’t have to or shouldn’t know about.&lt;/li&gt;
+  &lt;li&gt;Do not write tests just to get 100 % coverage. If someone tells you to always have 100 % coverage, no matter what, then &lt;strong&gt;punch them in the face&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Remember that tests should be written &lt;em&gt;outside-in&lt;/em&gt;, from a perspective outside the module. Note that full test coverage should still be possible, i.e. all branches of your code should still be reachable. If they’re not, they’re basically dead code, right? &lt;strong&gt;Test the internals only if you need to understand better how they work.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Think about what happens when the code is refactored, some time in the future. The implementation should be allowed to change without tests failing. Why? Well, because &lt;strong&gt;if the future coder has to change the tests, then it’s basically a rewrite, not a refactor. And rewrites aren’t safe.&lt;/strong&gt; There should be no new tests for refactoring internals.&lt;/p&gt;
+
+&lt;p&gt;Be pragmatic about what to test. Testing is part of the project, part of the value creation, and it doesn’t make sense to test just anything, just like it doesn’t make sense to implement every button. Remember the documentation aspect. If tests are mostly involved with implementation details, we loose the focus on what’s &lt;em&gt;important in the module&lt;/em&gt;. We loose the documentation value.&lt;/p&gt;
+
+&lt;p&gt;About documentation, &lt;strong&gt;test your domain assumptions.&lt;/strong&gt; These are the code interpretations of the problem domain you’re working in, often something where the programmer is not the expert. Documenting these assumptions in code form solves two problems: documenting the assumptions themselves, and proving that they work as interpreted.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Write a test when you find a bug.&lt;/strong&gt; Don’t just fix it, but prove for yourself and others that you’ve actually done so. Write a test, and make sure it’s both red and aligned what the expectation would be not aware of the bug. Fix the bug, make it green. Save the day.&lt;/p&gt;
+
+&lt;p&gt;Code coverage is overrated as a concrete number, but useful as a tool. Do not strive to cover for coverage’s sake. &lt;strong&gt;Remember that coverage only tells you what lines your tests run, but not in what combination they will run.&lt;/strong&gt; However, it can be a good indication of whether things are moving in the right direction. If a refactor leads to poorer code coverage, then some bells should be ringing, especially if it’s a refactor. Do not allow yourself to write tests just to increase the number. Well tested and written code will have a higher number.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The trigger for writing a test is when you’ve got a new piece of behavior.&lt;/strong&gt; The tests should capture that behavior, but no more.&lt;/p&gt;
+
+&lt;p&gt;Testing libraries might be both easier and more important than testing end applications. After all, libraries will be used by multiple applications.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-to-write-awesome-tests&quot;&gt;How To Write Awesome Tests&lt;/h2&gt;
+
+&lt;p&gt;Knowing how to write good tests is key, because it’s very easy to write them badly. The truth is, as with everything, that it takes practice. Still, here are some tips.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A good test is a simple test.&lt;/strong&gt; It doesn’t try to cover everything in one go. It’s name should reflect what it does, and the name should fit comfortably in one line. The name shouldn’t be &lt;em&gt;“it works”&lt;/em&gt;, but rather, &lt;em&gt;“it returns 0 for negative values”&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/rocket-test.gif&quot; alt=&quot;hello&quot; /&gt; &lt;em&gt;A good test is a simple test.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Make sure not to overspecify your test.&lt;/strong&gt; Overspecified tests know too much about internals for their own good, and don’t allow refactoring.&lt;/p&gt;
+
+&lt;p&gt;A unit test runs the code in isolation from other tests, not necessarily other code. It takes the code out of it’s context, and creates an artificial context from which an aspect of it can be investigated. However, that does not mean a unit test has to run in isolation from all other &lt;em&gt;code&lt;/em&gt;, even though this is often cited as “pure unit tests”. &lt;strong&gt;Everything does not have to be mocked, stubbed or spied on,&lt;/strong&gt; leading to more complex setups, lower coverage and more fragile tests.&lt;/p&gt;
+
+&lt;p&gt;Use &lt;a href=&quot;http://sinonjs.org/docs/#mocks&quot;&gt;mocks&lt;/a&gt; or &lt;a href=&quot;http://sinonjs.org/docs/#stubs&quot;&gt;stubs&lt;/a&gt; where that makes sense. You don’t want to test against a real HTTP API, but stub them out. Use a mock or a stub if what you’re testing is your own call to that object, or if you want to lead your own code down a certain path.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A test should read like a small story, following the AAA system: Arrange, Act, Assert.&lt;/strong&gt; You set things up, you make some statement, and you assert that the statement did what the statement should. The “small story” aspect has emphasis on &lt;em&gt;small&lt;/em&gt;. None of the “A”-s should be more than about 3 lines. Making some space between the phases can be nice. It should contain no branching or looping, and you should assert only one logical thing. (It’s nice if that can be expressed as one assert statement, but sometimes you’ll need more, and that’s OK.) Never assert in two different places in the test, as this causes confusion as to what you’re actually testing.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The test should be readable with only some domain knowledge.&lt;/strong&gt; If it does things that are hard to explain without going into the inner workings of the module, then it’s probably better to either spend some more time on the test, or just leave it out completely.&lt;/p&gt;
+
+&lt;p&gt;Generally, don’t test your dependencies. For certain projects, it may make sense to do some simple testing of the assumptions your own code is making, but do so sparingly and with caution. Testing a library is the job of the library author. Instead, rely on changelogs for upgrades, and on testing your integration against the library (this is a reason not to mock everything).&lt;/p&gt;
+
+&lt;p&gt;Write cheap tests that don’t take forever to run, because &lt;strong&gt;run them as often as possible&lt;/strong&gt;. If you can pass a &lt;code class=&quot;highlighter-rouge&quot;&gt;--watch&lt;/code&gt; argument to your test runner and have it run every time a file is changed, then that’s a good thing.&lt;/p&gt;
+
+&lt;p&gt;Last but not least, &lt;strong&gt;use a test framework you like working with.&lt;/strong&gt; If JavaScript is your thing, I’d like to recommend &lt;a href=&quot;https://github.com/sindresorhus/ava&quot;&gt;AVA 🚀&lt;/a&gt; because of it’s clarity, simplicity and lack of complex configuration. Whatever you choose, make sure it’s something that works with you and helps you write efficiently and fast. As with everything code, if it’s not fun, something is probably wrong.&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 11 Mar 2016 17:32:00 +0000</pubDate>
+        <link>http://mikbe.com/code/testing/dx/2016/03/11/why-and-how-testing-can-make-you-happier.html</link>
+        <guid isPermaLink="true">http://mikbe.com/code/testing/dx/2016/03/11/why-and-how-testing-can-make-you-happier.html</guid>
+        
+        
+        <category>code</category>
+        
+        <category>testing</category>
+        
+        <category>dx</category>
+        
+      </item>
     
       <item>
         <title>Give Your Releases Awesome Names with Codenamer</title>

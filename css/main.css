@@ -2421,9 +2421,12 @@ article {
     letter-spacing: -2px;
     text-indent: -3px;
     text-transform: none; }
+  article .content img {
+    display: block;
+    margin: 0 auto; }
   article .content h2, article .content h3, article .content h4, article .content h5, article .content h6 {
     color: #aeb1b5; }
-  article .content p {
+  article .content p, article .content ul, article .content li {
     font-family: Georgia,Cambria,"Times New Roman",Times,serif;
     line-height: 1.58;
     margin-top: 29px;
