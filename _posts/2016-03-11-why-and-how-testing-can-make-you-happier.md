@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Simplify Your Life by Testing Code
+title: Why and How Testing Can Make You Happier
 date: 2016-03-11 17:32:00 +0000
-categories: code testing
+categories: code testing dx
 heroimg: images/ninjastyle.jpg
 ---
 
@@ -28,7 +28,7 @@ Unit tests are cheap and should make up the largest part of your testing efforts
 
 ## Why is it Important?
 
-Testing helps you achieve peace of mind about your code. Writing a solution to a half-complex problem, then manually testing it only takes you so far. With some experience, you'll surely recognize the situation of shipping some code with confidence, only to find it break apart on first real try.
+Testing helps you achieve peace of mind about your code. Writing a solution to a half-complex problem, then manually testing it only takes you so far. With some experience, you'll surely recognize the situation of shipping some code with confidence, only to find it break apart at its first opportunity.
 
 Testing gives experience with the mindset of putting your code under the most extreme conditions it can get into. What if the number passed in was negative when we always assumed it would be positive? What if it wasn't a number at all?
 
@@ -41,15 +41,6 @@ Testing gives experience with the mindset of putting your code under the most ex
 Not convinced? Here are some additional arguments:
 
 ### Tested Code is Better Code
-<!--
-- Leads to better code
-  - Hard to test? Probably not well written
-  - Designing for test leads to better code
-  - Write API in tests: design your API first
-- Reveals hidden aha moments about code
-- Testing is a feature, just like any other code
-- Remove dependencies between tests and code
--->
 
 Many people<sup>[who?]</sup> will tell you that code testing leads to better code quality. This is especially true when using unit tests and at least some variation on test driven development, even if it's a sloppy one. Here's why:
 
@@ -61,7 +52,7 @@ Code that is hard to test probably has either too many things going on, or too m
 
 #### Think as a Consumer
 
-Another one: When you're writing tests first, you're **designing your code's API first.** Testing puts you into code consumer mode, where you'll write code against what's going to be the interface to other stuff. Designing your API without so much concern for inner workings leads to a better API design, which leads to easier consumption of your module, which leads to cleaner code in the project as a whole.
+When you're writing tests first, you're **designing your code's API first.** Testing puts you into code consumer mode, where you'll write code against what's going to be the interface to other stuff. Designing your API without so much concern for inner workings leads to a better API design, which leads to easier consumption of your module, which leads to cleaner code in the project as a whole.
 
 #### Eureka moments
 
@@ -69,14 +60,10 @@ Another one: When you're writing tests first, you're **designing your code's API
 
 These eureka moments can also come from one of the most frustrating situations: when your code and tests don't agree. You're put in the situation of having to decide which is right. If you're in this situation, something has probably gone wrong with the design, or your assumptions have changed. Think of this as a good sign! Your code will be happier.
 
-As a side note, I like to think about this situation like an NP-complete problem, *[The travelling salesman problem][travellingsalesman]*. These problem instances basically cannot be calculated without checking all possible solutions, so it's very hard. However, if you have God-given correct answer to the instance, testing the outcome of the algorithm is easy as `t.equal(outcome, godGiven)`. Doesn't it make sense that testing is easier than writing actual code?
+<!-- As a side note, I like to think about this situation like an NP-complete problem, *[The travelling salesman problem][travellingsalesman]*. These problem instances basically cannot be calculated without checking all possible solutions, so it's very hard. However, if you have God-given correct answer to the instance, testing the outcome of the algorithm is easy as `t.equal(outcome, godGiven)`. Doesn't it make sense that testing is easier than writing actual code?-->
 
 ### Tests Document What the Code Does
-<!--
-- Documentation of what the code is supposed to do
-- Onramping, tests as specification
-- Being able to limit what you're thinking about
--->
+
 No-one loves to write documentation, but it sure as hell is nice when the module your inheriting (from your one year younger self, or someone else) or interfacing is well documented. Tests can be this documentation, and with an added bonus: tests put their money where their mouths are and *demonstrate* what they mean. Like the best science teachers, they don't just tell you that hydrogen is flammable. They fill a balloon with hydrogen, let it rise to the ceiling and put a lighted match on a stick to it (One of my most memorable 5th grade classes).
 
 Do you know what is common to all bugs? *They passed all the tests.* So when you find one, you know where not to look.
@@ -91,23 +78,13 @@ Ever looked at a horrible mess of code, but been to afraid to clean it up? The f
 
 I've seen pieces of code so bad they cause real concerns of whether they actually do what they're supposed to. Still, no-one dared touch it, afraid of not only breaking intended functionality, but also breaking *bugs*. I suspect a large test set based on past I/O would be well worth its investment.
 
-Fun fact, **the feelings of worry and happiness are inversely proportional**.
+Fun fact, **the feelings of worry and happiness are inversely proportional**. Or something like that.
 
 ### Create Value with Confidence and Correct Products
 
 Correct code is more valuable than incorrect code<sup>[citation needed]</sup>. Everything helping your code to be correcter tahn what was there before is worth taking a look at, it's as simple as that. Delivering correct code builds up trust over time, trust is a valuable asset.
 
 ## A Tool to Use Less Brain RAM
-<!--
-- Confidence while refactoring or adding features
-- Red/green refactor
-- Write a test, make it green, then refactor
-- Go green as fast as possible, then make it better
-  - First, hack stuff.
-  - Hard to do two things at the same time: Solving a problem or engineering it well.
-  - Just go and solve the problem! Worry later.
-  - Speed trumps design
--->
 
 Here's a tip: **Don't try to solve a problem and engineer a nice solution at the same time.** Testing gives us that opportunity, using this recipe from [Ian Cooper's talk on TDD][tdd-where-did-it-all-go-wrong]:
 
@@ -122,36 +99,6 @@ When solving the problem, do not think about how the code really should be. Copy
 Separating your own concerns is one of the reasons to test in the first place, and this method helps doing it in practice. When you quickly and dirtily race to a solution, you don't have to think about how it looks or how fast it runs. When you carve out your nicely engineered and cool solution, you don't have to worry about screwing something up.
 
 ## Knowing What to Test is Key
-<!--
-- Trigger for writing a test is when you've got a new piece of *behaviour*
-  - Test needs to capture that behaviour
-  - Test outside-in: start with the notion of the use case
-  - Don't make that outside your UX or REST API
-  - Test your domain models.
-  - Most of us are testing much too much
-  - Test the surface of the module, no things that are internal or private
-  - Should be quite narrow
-  - The internal API
-  - Only write tests to cover implementation details when you need to better understand the refactoring of the simple implementation we start with
-  - Be pragmatic
-  - Application vs library (library easier)
-  - Find a bug, write a test, fix the bug
-  - TDD is the best thing we know about
-    - Worst thing, except for all the others
-    - Everybody agrees they should have them, just not right now
-  - Know when not to test
-    - Comes with experience
-  - We All Write Bugs
-    - That's all we do, we all write incorrect code.
-  - How do I make it work, vs how to use it?
-    - We flip into consumer mode
-  - If we change the implementation details, none of our tests should break
-    - Re*writing* is not safe
-  - Create value
-  - No new tests for refactoring internals
-  - Don't mock internals
-  - **Test behaviours, not implementations**
-  -->
 
 Knowing what to test isn't as easy as it sounds, and is definitively something that comes with experience. Many test too much. Knowing what to test is related to understanding what is important, and what isn't, and knowing that is not trivial. Here's a tip, though:
 
@@ -203,74 +150,8 @@ Generally, don't test your dependencies. For certain projects, it may make sense
 
 Write cheap tests that don't take forever to run, because **run them as often as possible**. If you can pass a `--watch` argument to your test runner and have it run every time a file is changed, then that's a good thing.
 
-Last but not least, **use a test framework you like working with.** If JavaScript is your thing, I'd like to recommend [AVA 🚀][ava] because of it's clarity, simplicity and lack of complex configuration. Whatever you choose, make sure it's something that works with you and helps you write efficiently and fast.
+Last but not least, **use a test framework you like working with.** If JavaScript is your thing, I'd like to recommend [AVA 🚀][ava] because of it's clarity, simplicity and lack of complex configuration. Whatever you choose, make sure it's something that works with you and helps you write efficiently and fast. As with everything code, if it's not fun, something is probably wrong.
 
-<!-- ## Unit tests
-
-Unit testing will not solve all our problems.
-
-## Integration tests
-
- - What to test?
-
- - Test failures:
-   - Problem with code? Problem with test?
-   - Test was right, but misunderstood?
-   - Tests guide code
-   - Like NP-Complete problems, Travelling Salesman
- - Reading tests is a form of documentation
-   - Often better than documentation itself
- - Find a test framework you're happy with (AVA, Sinon)
- - Integration tests vs unit tests
-   - There's a spectrum
-   - Integration
-     - Expensive
-     - Mimicks the user
-     - Codifies manual tests
-     - See how a number of closely related or collaborative components work together
-   - Unit testing
-     - Cheap
-     - Bulk of testing effort
-     - Pulls out one specific piece
-     - TDD
-     - Pure unit test: the thing you're testing has no dependencies, or you fake all the dependencies
-     - Dependency injection more a part of the code itself, a technique to write testable code
-     - Stubs, spies, mocks
-     - Often a class or a function or an object
-     - When you write unit tests, take it out of it's context, create an artificial context in which to probe it. Test *one* behaviour.
-     - Good Unit Tests:
-       - Simple!
-       - A test that runs in isolation from other tests
-       - Not testing a module in isolation?
-         - The test shouldn't have any side effects
-         - It's the *test* that is isolated, not necessarily your *class*/OUT
-      - Not overspecified, knows too much about your implementation
-       - AAA-system: Arrange, Act, Assert (each 3 lines of code)
-         - First set things up
-         - Make some change
-         - Test that it has changed
-       - Reads like a little story
-       - Only needs basic understanding of the domain
-       - Someone else
-       - No branching, no looping.
-       - Generally *one* expectation
-       - Has a clear statement about what the test is about
-       - Never assert in two places
- - Coverage
-   - 100 % coverage does not ensure it works
-   - Strive for 100 %, cause then you hit 80.
-   - Overrated?
-   - Test what's important
-   - Don't test cruff
-   - Doesn't tell you what happens when bad values come along
-   - **You gotta think!**
-   - Relative code coverage between commits?
-   - Does not tell you what combinations of paths are actually being run.
- - Mocking, stubbing, dependency injection
-
-
-
--->
 
 [jsair004]: http://javascriptair.com/episodes/2016-01-06/
 [travellingsalesman]: https://en.wikipedia.org/wiki/Travelling_salesman_problem
