@@ -67,13 +67,16 @@ article {
   }
 
   .content {
-
+    img {
+      display: block;
+      margin: 0 auto;
+    }
 
     h2, h3, h4, h5, h6 {
       color: $grey;
     }
 
-    p {
+    p, ul, li {
       font-family: Georgia,Cambria,"Times New Roman",Times,serif;
       line-height: 1.58;
       margin-top: 29px;
